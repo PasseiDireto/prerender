@@ -18,9 +18,10 @@ var server = prerender({
     // This callback runs under the context of PhantomJS, so it cannot access neither global variables nor closures
     // from this script
     onResourceRequested: function(requestData, request) {
-        if (!/https?:\/\/(.*\.)?passeidireto\.com\/?.*/.test(requestData.url) ||
-            /.(css|jpg|gif|png)/.test(requestData.url)) {
+        if (!/https?:\/\/(.*\.)?passeidireto\.com\/?.*/.test(requestData.url) || 
+	    /.(css|jpg|gif|png)/.test(requestData.url)) {
             request.abort();
+            requestData.aborted = true;
         }
     }
 });
