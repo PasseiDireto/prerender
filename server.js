@@ -10,7 +10,7 @@ var server = prerender({
     // Timeouts (milliseconds)
     pageDoneCheckTimeout: 1000,
     resourceDownloadTimeout: 30000,
-    waitAfterLastRequest: 5000,
+    waitAfterLastRequest: 3000,
     jsTimeout: 20000,
     jsCheckTimeout: 1000,
     evaluateJavascriptCheckTimeout: 1000,
@@ -26,8 +26,10 @@ var server = prerender({
     }
 });
 
+server.use(prerender.logRenderedMarkupSize());
+server.use(prerender.validateRenderedMarkup());
 server.use(prerender.removeScriptTags());
-// server.use(prerender.logger());
+server.use(prerender.logger());
 // server.use(prerender.s3HtmlCache());
 
 server.start();
