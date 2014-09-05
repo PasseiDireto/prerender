@@ -5,7 +5,7 @@ var server = prerender({
     port: parseInt(process.argv[2]) || 3000,
     phantomBasePort: parseInt(process.argv[3]) || 12300,
     workers: 1,
-    iterations: 10,
+    iterations: 0,
 
     // Timeouts (milliseconds)
     pageDoneCheckTimeout: 1000,
