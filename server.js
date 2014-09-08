@@ -30,6 +30,6 @@ server.use(prerender.logRenderedMarkupSize());
 server.use(prerender.validateRenderedMarkup());
 server.use(prerender.removeScriptTags());
 server.use(prerender.logger());
-// server.use(prerender.s3HtmlCache());
+server.use(prerender.s3HtmlCache());
 
 server.start();
