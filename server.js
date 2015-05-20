@@ -19,7 +19,7 @@ var server = prerender({
     // from this script
     onResourceRequested: function(requestData, request) {
         if (!/https?:\/\/(.*\.)?passeidireto\.com\/?.*/.test(requestData.url) || 
-	    /.(css|jpg|gif|png)/.test(requestData.url)) {
+	    /\.(css|jpg|gif|png)/.test(requestData.url)) {
             request.abort();
             requestData.aborted = true;
         }
